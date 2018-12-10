@@ -5,14 +5,13 @@ Catkin wrapper for [libzmq](https://github.com/zeromq/libzmq) and [cppzmq](https
 - Drafts API enabled
 
 ## Usage
-
-Before including any other catkin package, run:
+Using ``libzmq_catkin``, you can use ZeroMQ like any other catkin package:
 
 ```cmake
-
 find_package(catkin REQUIRED COMPONENTS libzmq_catkin)
-set(libzmq_INCLUDE_DIRS "${catkin_INCLUDE_DIRS}/libzmq_catkin")
-set(libzmq_LIBRARIES "${catkin_LIBRARIES}")
+```
 
-find_package(catkin REQUIRED COMPONENTS all_your_other_packages)
+And use the in your C++ files as
+```cpp
+#include <zmq.hpp>
 ```
