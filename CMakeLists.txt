@@ -15,8 +15,12 @@ ExternalProject_Add(libzmq
 ExternalProject_Add(cppzmq
     URL https://github.com/zeromq/cppzmq/archive/v4.3.0.tar.gz
     URL_MD5 333b791d047c5ab6a60d8103284dedf5
+    SOURCE_DIR ${PROJECT_BINARY_DIR}/cppzmq
     UPDATE_COMMAND ""
-    CMAKE_ARGS -DCPPZMQ_BUILD_TESTS:BOOL=OFF -DENABLE_DRAFTS:BOOL=ON -DCMAKE_INSTALL_PREFIX:PATH=${CATKIN_DEVEL_PREFIX}
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_BINARY_DIR}/cppzmq/zmq.hpp ${CATKIN_DEVEL_PREFIX}/include/
+    DEPENDS libzmq
 )
 
 if(IS_DIRECTORY ${CMAKE_INSTALL_PREFIX})
