@@ -28,6 +28,7 @@ if(IS_DIRECTORY ${CMAKE_INSTALL_PREFIX})
     catkin_package(
         INCLUDE_DIRS include/
         LIBRARIES zmq
+        CFG_EXTRAS libzmq_catkin.cmake
 )
 else()
     message(WARNING "Compiling for devel workspace")
@@ -35,6 +36,7 @@ else()
     catkin_package(
         INCLUDE_DIRS ${CATKIN_DEVEL_PREFIX}/include/
         LIBRARIES zmq
+        CFG_EXTRAS libzmq_catkin.cmake
     )
 endif()
 
